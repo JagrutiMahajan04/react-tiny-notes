@@ -7,7 +7,7 @@ function AddNote() {
   return (
     <div>
       <Navbar/>
-      Note
+      <h1>Note</h1>
     </div>
 
   );
