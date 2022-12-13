@@ -2,10 +2,10 @@
     padding:10px;
     margin:10px;
     border-radius: 10px;
-    box-shadow: 1px 1px 5px 1 rgba(39, 2, 250, 0.2);
+    box-shadow: 2px 2px 2px 2px white;
     margin-bottom: 20px;
     color: rgb(252, 254, 254);
-    background-color: rgb(40, 99, 250);
+    background-color:#2a2afd;
 }
 .app-title{
     text-align: center;
@@ -21,6 +21,9 @@
     border-radius: 10px;
     height: 380px;
     overflow-y:scroll;
+    box-shadow: 2px 2px 2px 1px rgb(139, 139, 246);
+
+    
 }
 .note-editor-container{
     background-color: rgb(251, 252, 254);
@@ -31,8 +34,26 @@
     margin-right: auto;
     border-radius: 10px;
     max-height: 380px;
+    box-shadow: 2px 2px 2px 1px rgb(139, 139, 246);
 }
 .add-note-button-container{
     display: flex;
     justify-content: center;
+}
+.add-heading{
+    color: white;
+    padding: 5px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 6px;
+}
+.add-button{
+    color:white;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 1px 1px 1px 2px rgb(139, 139, 246);
+}
+.add-button:hover{
+    color: white;
+    background-color: blue;
 }

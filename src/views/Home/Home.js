@@ -1,4 +1,4 @@
-import React, { useState, UseEffect } from 'react'
+import React, { useState, UseEffect, useEffect } from 'react'
 import './Home.css';
 
 import Note from '../../components/Note/Note';
@@ -11,9 +11,22 @@ function Home() {
       title: "Note ",
       content: "You can add more notes to this list."
     },
-    
-
   ])
+  //triggers initially 1st
+  useEffect(()=>{
+    const notes = localStorage.getItem("notes")
+    if(notes){
+      setNotes(JSON.parse(notes))
+    }
+
+  }, [])
+
+  //triggers when notes changes
+  useEffect(()=>{
+     if(notes.length > 1){
+      localStorage.setItem("notes",JSON.stringify(notes))
+     }
+  }, [notes])
 
   const [title,setTitle]= useState("")
   const [content,setContent]= useState("")
@@ -57,7 +70,7 @@ function Home() {
   return (
     <div>
       <div className='app-title-container'>
-        <h1 className='app-title'>My Notes</h1>
+        <h1 className='app-title'>📝 My Notes</h1>
       </div>
       <div className='row'>
         <div className='col-md-6'>
@@ -65,7 +78,7 @@ function Home() {
             {
               notes.map((note, index) => {
                 return (
-                  <Note title={note.title} content={note.content} />
+                  <Note title={note.title} content={note.content} noteIndex={index} />
                 )
               })
             }
@@ -75,14 +88,14 @@ function Home() {
 
         <div className='col-md-6'>
           <div className='note-editor-container'>
-            <h3 className='text-center'>Add Note</h3>
+            <h3 className='text-center bg-info add-heading ' >Add Note</h3>
             <form>
               <div>
                 <input type="text" value={title} onChange={(e)=>{setTitle(e.target.value)}} className='form-control mt-4 ' placeholder='Note Title' />
                 <input type="text"  value={content} onChange={(e)=>{setContent(e.target.value)}}className='form-control mt-4 ' placeholder='Note description' />
               </div>
               <div className='add-note-button-container'>
-              <button  type="button"className='btn btn-info mt-4' onClick={addNote}>Add Note</button>
+              <button  type="button"className='btn btn-info mt-4 add-button' onClick={addNote}>Add Note</button>
               </div>
             </form>
 
