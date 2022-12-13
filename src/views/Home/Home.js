@@ -2,30 +2,51 @@ import React, { useState, UseEffect } from 'react'
 import './Home.css';
 
 import Note from '../../components/Note/Note';
+import swal from 'sweetalert';
+
 
 function Home() {
   const [notes, setNotes] = useState([
     {
-      title: "Note 1",
-      content: "This is content of note 1"
+      title: "Note ",
+      content: "You can add more notes to this list."
     },
-    {
-      title: "Note 2",
-      content: "This is content of note 2"
-    }
+    
 
   ])
 
   const [title,setTitle]= useState("")
   const [content,setContent]= useState("")
 
+
   function addNote(){
     const newNote = {
       "title":title,
       "content":content
     }
-    setNotes([...notes,newNote])
 
+    // const temp = notes;/Method 1
+    // temp.push(newNote)
+    // setNotes(temp);
+
+    if(title =="" || content ===""){
+      swal({
+        title: "Error!",
+        text: "Please fill all the fields!",
+        icon: "error",
+      })
+      return;
+    }
+     
+    //Method 2
+    setNotes([...notes,newNote])
+    
+    swal({
+      title: "Good Job!",
+      text: "Your note has been successfully added to list.!",
+      icon: "success",
+    });
+    
     setTitle("")
     setContent("")
 

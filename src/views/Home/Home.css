@@ -2,12 +2,14 @@
     padding:10px;
     margin:10px;
     border-radius: 10px;
-    box-shadow: 0 0 5px 0 rgb(0, 0, 0,0.2);
+    box-shadow: 1px 1px 5px 1 rgba(39, 2, 250, 0.2);
     margin-bottom: 20px;
-    border:5px double brown;
+    color: rgb(252, 254, 254);
+    background-color: rgb(40, 99, 250);
 }
 .app-title{
     text-align: center;
+    
 }
 .notes-container{
     background-color: white;
@@ -21,7 +23,7 @@
     overflow-y:scroll;
 }
 .note-editor-container{
-    background-color: white;
+    background-color: rgb(251, 252, 254);
     padding: 10px;
     margin-top: 50px;
     width:400px;
